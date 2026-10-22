@@ -13,3 +13,15 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# local demo media and production scratch (not part of the app)
+/demo/
+/video-work/
+/audio/
+/ffmpeg-local.exe
+/*.py
+*.mp4
+
+# python
+__pycache__/
+*.pyc
