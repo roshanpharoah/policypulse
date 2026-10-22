@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pp-canvas: #f6f4ee;
+  --color-pp-surface: #ffffff;
+  --color-pp-ink: #101b2d;
+  --color-pp-muted: #5b6777;
+  --color-pp-faint: #626d7b;
+  --color-pp-line: #e3dfd4;
+  --color-pp-navy: #0b1f33;
+  --color-pp-navy-700: #16324f;
+  --color-pp-navy-500: #2b4a6b;
+  --color-pp-navy-soft: #e8edf3;
+  --color-pp-teal: #0f766e;
+  --color-pp-teal-bright: #128f84;
+  --color-pp-teal-soft: #d9f0ec;
+  --color-pp-amber: #a15c07;
+  --color-pp-amber-soft: #fbeed7;
+  --color-pp-rose: #a72a1c;
+  --color-pp-rose-soft: #fbe6e2;
+  --color-pp-sage: #1d6b4f;
+  --color-pp-sage-soft: #dcefe4;
+  --color-pp-violet: #5b4b9a;
+  --color-pp-violet-soft: #ece8fa;
+
+  --font-sans: "Segoe UI", "Inter", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Segoe UI Semibold", "Segoe UI", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 0.875rem;
+  --shadow-card: 0 1px 2px rgba(16, 27, 45, 0.04), 0 8px 24px -18px rgba(16, 27, 45, 0.35);
+  --shadow-float: 0 20px 60px -24px rgba(11, 31, 51, 0.45);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-pp-canvas text-pp-ink antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background: var(--color-pp-teal-soft);
+    color: var(--color-pp-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-pp-teal);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-pp-navy;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .pp-grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(11, 31, 51, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 31, 51, 0.045) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .pp-prose a {
+    @apply text-pp-teal underline decoration-pp-teal/40 underline-offset-2 hover:decoration-pp-teal;
+  }
+
+  .pp-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(91, 103, 119, 0.35) transparent;
+  }
+}
+
+.presenting {
+  font-size: 1.075rem;
+}
+
+@media (min-width: 1280px) {
+  .presenting .pp-container {
+    max-width: 88rem;
+  }
+}

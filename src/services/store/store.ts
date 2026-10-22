@@ -123,7 +123,8 @@ export const currentDemoDate = (): string => useAppStore.getState().state.clock.
 /** Advance the demo clock by whole days. */
 export const advanceClockBy = async (days: number): Promise<void> => {
   const state = useAppStore.getState().state;
-  const to = addDays(state.clock.now, days);
+  // `addDays` works on dates; advance the date part and preserve the demo time-of-day.
+  const to = `${addDays(state.clock.now.slice(0, 10), days)}${state.clock.now.slice(10)}`;
   const event: DomainEvent = {
     id: nextId('evt'),
     type: 'ClockAdvanced',
