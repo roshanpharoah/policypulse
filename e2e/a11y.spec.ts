@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import axe from 'axe-core';
 
 /**
- * Lightweight accessibility smoke test. It runs axe against two representative screens and
+ * Lightweight accessibility smoke test. It runs axe against eight representative screens and
  * fails only on serious or critical violations, so cosmetic best-practice hints do not drown
  * out real keyboard/screen-reader problems.
  */
